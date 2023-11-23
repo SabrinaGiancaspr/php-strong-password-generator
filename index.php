@@ -1,5 +1,8 @@
-<?php 
-$length= $_GET['length']; 
+<?php
+include 'function.php'; // Includi il file function.php 
+
+$length = isset($_GET['length']) ? $_GET['length'] : 10;
+
 ?>
 
 <!DOCTYPE html>
@@ -21,19 +24,5 @@ $length= $_GET['length'];
     <div>
         <span>La tua password è: <?php echo generateRandomPassword($length) ?> </span>
     </div>
-
-    <?php 
-
-    function generateRandomPassword($length) {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?@';
-    $password = '';
-
-    for ($i = 0; $i < $length; $i++) {
-        $password .= $alphabet[rand(0, strlen($alphabet) - 1)];
-    }
-
-    return $password;
-    }
-?>
 </body>
 </html>
